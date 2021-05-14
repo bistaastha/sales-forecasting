@@ -24,7 +24,7 @@ python3 -m virtualenv env
 - Activation
 ```
 source env/bin/activate
-
+```
 3. Install requirements
 ```
 pip3 install -r requirements.txt
