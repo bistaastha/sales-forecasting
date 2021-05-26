@@ -1,60 +1,15 @@
-<!--
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <style>
-    .selection {
-      background-color: powderblue;
-
-    }
-    .central {
-
-    }
-    </style>
-
-  </head>
-  <body>
-    Working on adding entries to an HTML table through a form, and later converting that Table data to a dataframe-->
-  <!--  <table>
-      <tr>
-      <th></th>
-      </tr>
-      </table>
-      <div class="central">
-      <button type="button" class="btn btn-primary">Departmental Sales Forecasting</button><br>
-
-      <button type="button" class="btn btn-primary">Weather Sales Forecasting</button><br>
-    </div>
-    <br>
-    <button class="selection" type="submit">Departmental sales prediction</button>
-
-    Creating a form
-    <h1>Analysis</h1><br>
-    <button class="bt">Show Dataframe Head</button><br>
-    <button class="bt">Show Dataframe Tail</button><br>
-    <button class="bt">Show Correlation</button><br>
-    <h1>Predition</h1><br>
-    <button class="bt"></button>
-      <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
-      <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
-  </body>
-</html>
--->
-
-<!DOCTYPE html>
 <head>
-
-</head>
+<script>
+fetch('/test')
+    .then(function (response) {
+        return response.json();
+    }).then(function (text) {
+        console.log('GET response:');
+        console.log(text.greeting);
+    });
+</script>
 
 <body>
-    <h1>Here's how easy it is to show a pandas dataframe!</h1>
-    {% for table in table %}
-    {{ table|safe }}
-    {% endfor %}
-
-    <h1>And here's how easy it is to show a plot!</h1>
-    <img src="/plot.png" >
-</body>
+<h1> Python Fetch Example</h1>
+<p id='embed'> {{embed}} </p> <p id='mylog'/>
+<body>
