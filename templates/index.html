@@ -1,15 +1,34 @@
-<head>
-<script>
-fetch('/test')
-    .then(function (response) {
-        return response.json();
-    }).then(function (text) {
-        console.log('GET response:');
-        console.log(text.greeting);
-    });
-</script>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <style>
+    .bt {
+      margin: 2vh;
+      border: 80%;
+      padding: 2vh;
+      width: 20vw;
+    }
 
-<body>
-<h1> Python Fetch Example</h1>
-<p id='embed'> {{embed}} </p> <p id='mylog'/>
-<body>
+    </style>
+
+    <script>
+
+    function showHead() {
+
+    }
+    </script>
+
+  </head>
+  <body>
+    <h1>Analysis</h1><br>
+    <button type="button" class="btn btn-primary bt">Show dataframe head</button><br>
+
+    <button type="button" class="btn btn-primary bt">Show dataframe tail</button><br>
+
+    <button type="button" class="btn btn-primary bt">Show features datatypes</button><br>
+    <h1>Predition</h1><br>
+  </body>
+</html>
