@@ -1,34 +1,199 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <style>
-    .bt {
-      margin: 2vh;
-      border: 80%;
-      padding: 2vh;
-      width: 20vw;
-    }
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Sales Forcasting</title>
+	</head>
+	<body>
+		<div class="navbar bs">
+			<div class="container">
+				<div class="figure">Sales Forcasting</div>
+				<div class="nav-links">
+					<div class="nav-link"><a href="https://github.com/bistaastha/sales-forecasting" target="_blank">GitHub</a></div>
+          <div class="nav-link"><a href="/dataframe" target="_blank">/dataframe</a></div>
+          <div class="nav-link"><a href="/plot" target="_blank">/plot</a></div>
+				</div>
+			</div>
+		</div>
 
-    </style>
+		<div class="main container">
+			<div class="left bs">
+				<div class="heading">Configuration</div>
 
-    <script>
+				<section>
+					<div class="sub-heading">Filters</div>
+					<div class="content">
+						<div class="form-grp">
+							<label for="month">Month</label>
+							<input list="month-list" type="text" id="month" name="month" />
+              <datalist id="month-list">
+                <option value="All">
+                <option value="January">
+                <option value="February">
+                <option value="March">
+                <option value="April">
+                <option value="May">
+                <option value="June">
+                <option value="July">
+                <option value="August">
+                <option value="September">
+                <option value="October">
+                <option value="November">
+                <option value="December">
+              </datalist>
+						</div>
+						<div class="form-grp">
+							<label for="year">Year</label>
+							<input list="year-list"type="text" id="year" name="year" />
+              <datalist id="year-list">
+                <option value="2010">
+                <option value="2011">
+                <option value="2012">
+              </datalist>
+						</div>
+					</div>
+				</section>
+				<section>
+					<div class="sub-heading">Features</div>
+					<div class="content">
+						<div class="item">Algorithm Used : Decision Tree</div>
+            <div class="form-grp">
+							<label for="test-data">Test Data Size (in percent)</label>
+							<input type="number" id="test-data" min=20 max=40 name="test-data" />
+						</div>
+						<div class="checkboxes" id="feature-selector">
+							<div class="checkbox-grp">
+								<input
+									type="checkbox"
+									id="size"
+									name="size"
+									value="size"
+								/>
+								<label for="size">Size</label>
+							</div>
+							<div class="checkbox-grp">
+								<input
+									type="checkbox"
+									id="isHoliday"
+									name="isHoliday"
+									value="isHoliday"
+								/>
+								<label for="isHoliday">Is Holiday</label>
+							</div>
+							<div class="checkbox-grp">
+								<input
+									type="checkbox"
+									id="temperature"
+									name="temperature"
+									value="temperature"
+								/>
+								<label for="temperature">Temperature</label>
+							</div>
+							<div class="checkbox-grp">
+								<input
+									type="checkbox"
+									id="fuelprice"
+									name="fuelprice"
+									value="fuelprice"
+								/>
+								<label for="fuelprice">Fuel Price</label>
+							</div>
+							<div class="checkbox-grp">
+								<input
+									type="checkbox"
+									id="unemployment"
+									name="unemployment"
+									value="unemployment"
+								/>
+								<label for="unemployment">Unemployment</label>
+							</div>
+							<div class="checkbox-grp">
+								<input
+									type="checkbox"
+									id="year"
+									name="year"
+									value="year"
+								/>
+								<label for="year">Year</label>
+							</div>
+							<div class="checkbox-grp">
+								<input
+									type="checkbox"
+									id="m1"
+									name="m1"
+									value="m1"
+								/>
+								<label for="m1">M1</label>
+							</div>
+							<div class="checkbox-grp">
+								<input
+									type="checkbox"
+									id="m2"
+									name="m2"
+									value="m2"
+								/>
+								<label for="m2">M2</label>
+							</div>
+							<div class="checkbox-grp">
+								<input
+									type="checkbox"
+									id="m3"
+									name="m3"
+									value="m3"
+								/>
+								<label for="m3">M3</label>
+							</div>
+							<div class="checkbox-grp">
+								<input
+									type="checkbox"
+									id="m4"
+									name="m4"
+									value="m4"
+								/>
+								<label for="m4">M4</label>
+							</div>
+							<div class="checkbox-grp">
+								<input
+									type="checkbox"
+									id="m5"
+									name="m5"
+									value="m5"
+								/>
+								<label for="m5">M5</label>
+							</div>
+							<div class="checkbox-grp">
+								<input
+									type="checkbox"
+									id="type"
+									name="type"
+									value="type"
+								/>
+								<label for="type">Type</label>
+							</div>
+							<div class="checkbox-grp">
+								<input
+									type="checkbox"
+									id="month"
+									name="month"
+									value="month"
+								/>
+								<label for="month">Month</label>
+							</div>
+						</div>
+					</div>
+					<button class="submit" onclick="handler()">Submit</button>
+				</section>
+			</div>
 
-    function showHead() {
+			<div class="right bs">
+        <p id="filler"></p>
+      </div>
+		</div>
 
-    }
-    </script>
-
-  </head>
-  <body>
-    <h1>Analysis</h1><br>
-    <button type="button" class="btn btn-primary bt">Show dataframe head</button><br>
-
-    <button type="button" class="btn btn-primary bt">Show dataframe tail</button><br>
-
-    <button type="button" class="btn btn-primary bt">Show features datatypes</button><br>
-    <h1>Predition</h1><br>
-  </body>
+		<div class="footer bs">Made By Aastha Bist</div>
+		<script src="{{ url_for('static',filename='js/index.js') }}"></script>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+	</body>
 </html>
