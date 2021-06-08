@@ -1,0 +1,171 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+$back: #f1f8ff;
+$accent: #0082fb;
+$white: #fff;
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background: $back;
+	font-family: "Poppins", sans-serif;
+}
+
+.container {
+	margin: 0 10%;
+}
+.bs {
+	box-shadow: 0px 0px 26px 0px rgba(0, 130, 251, 0.1);
+}
+
+.navbar {
+	background: $white;
+	.container {
+		padding: 1.5rem 0;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		.figure {
+			cursor: pointer;
+			font-size: 1.3rem;
+			font-weight: 700;
+			color: $accent;
+		}
+		.nav-links {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+			.nav-link {
+				cursor: pointer;
+				padding: 0 1rem 0 0;
+				color: lighten(#000, 30);
+			}
+		}
+	}
+}
+
+.form-grp {
+	padding: 0.2rem;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	font-size: 0.9rem;
+}
+
+input {
+	padding: 0.2rem;
+	outline: none;
+	border: lighten($accent, 46);
+	background: lighten($accent, 46);
+}
+
+input:focus {
+	border: 1px solid $accent;
+}
+
+button {
+	padding: 0.6rem 1.2rem;
+	background: $accent;
+	border: none;
+	outline: none;
+	font-weight: 600;
+	font-size: 1rem;
+	color: $white;
+}
+
+.main {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	.left {
+		margin: 4rem 1rem 4rem 0;
+		padding: 3rem;
+		background: $white;
+		.heading {
+			color: $accent;
+			font-weight: 600;
+			font-size: 1.2rem;
+			padding-bottom: 1rem;
+			border-bottom: 2px solid $accent;
+		}
+		.sub-heading {
+			font-weight: 600;
+			font-size: 1.1rem;
+			padding: 1rem 0;
+		}
+		.item {
+			font-size: 0.9rem;
+			margin-bottom: 0.5rem;
+		}
+		.checkboxes {
+			font-size: 0.9rem;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			.checkbox-grp {
+				margin: 0.2rem;
+			}
+		}
+		.submit {
+			margin-top: 1rem;
+		}
+	}
+	.right {
+		margin: 4rem 0 4rem 1rem;
+		background: $white;
+		width: 100%;
+	}
+}
+
+.footer {
+	background: $white;
+	text-align: center;
+	padding: 1rem 0;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	color: $accent;
+}
+
+/*Checkboxes styles*/
+input[type="checkbox"] {
+	display: none;
+}
+
+input[type="checkbox"] + label {
+	display: block;
+	position: relative;
+	padding-left: 35px;
+	margin-bottom: 20px;
+	cursor: pointer;
+	user-select: none;
+}
+
+input[type="checkbox"] + label:last-child {
+	margin-bottom: 0;
+}
+
+input[type="checkbox"] + label:before {
+	content: "";
+	display: block;
+	width: 20px;
+	height: 20px;
+	border: 1px solid $accent;
+	position: absolute;
+	left: 0;
+	top: 0;
+	opacity: 1;
+	transition: all 0.12s, border-color 0.08s;
+}
+
+input[type="checkbox"]:checked + label:before {
+	width: 10px;
+	top: -5px;
+	left: 5px;
+	border-radius: 0;
+	opacity: 1;
+	border-top-color: transparent;
+	border-left-color: transparent;
+	transform: rotate(45deg);
+}
