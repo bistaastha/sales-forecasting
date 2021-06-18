@@ -1,1 +1,1 @@
-__all__ = ['prediction', 'printer']
+__all__ = ['prediction']

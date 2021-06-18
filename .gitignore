@@ -3,3 +3,5 @@ venv/
 env/
 __pycache__/
 .ipynb_checkpoints/
+config.txt
+config.sh

@@ -1,16 +1,14 @@
 import os
+from botocore.history import get_global_history_recorder
 import pandas as pd
-from flask import Response, Flask, send_file, request
+from flask import Response, Flask, send_file, request, jsonify, make_response
 from flask.templating import render_template
-
-import matplotlib
-import matplotlib.pyplot as plt
-from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
-
+import sys
+import os
+import project.utils.processing as prc
 import dataframe_image as dfi
 
-from matplotlib.figure import Figure
-matplotlib.use('Agg')
+pd.set_option('display.max_rows', 15)
 
 app = Flask(__name__)
 out = pd.read_csv('./data/out.csv')
@@ -21,25 +19,29 @@ def show_template():
 
 @app.route('/dataframe')
 def display_frame():
-    out_head = out.head()
-    datapath = os.path.join(os.getcwd() + '/static/img')
-    dfi.export(
-        out_head,
-        os.path.join(datapath, 'out.png')
-    )
     return render_template('dataframe.html')
-
-@app.route('/heatmap.png')
-def plot_png():
-    datapath = os.path.join(os.getcwd() + '/public', 'out.png')
-    return send_file(datapath, mimetype='image/png')
 
 @app.route('/data', methods = ["POST"])
 def data():
     if request.method == 'POST':
         print(request.data, flush=True)
-        processing()
+        html_er, desc = prc.d_processing(request.data, out)
+        datapath = os.path.join(os.getcwd() + '/static/img')
+        dfi.export(
+            desc,
+            os.path.join(datapath, 'out.png')
+        )
+        print(html_er, flush = True)
+        global er_html
+        er_html = html_er
         return 'OK', 200
-    
+
+
+
+@app.route('/result')
+def result():
+    d = {"html_er": er_html}
+    return jsonify(d)
+
 if __name__ == "__main__":
     app.run(port=5000, debug = True)
